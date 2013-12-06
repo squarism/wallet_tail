@@ -4,7 +4,7 @@ require_relative 'wallet'
 class Monitor
 
   def sleep_time
-    30
+    300
   end
 
   def wallet_balance
@@ -13,6 +13,10 @@ class Monitor
     begin
       balance = wallet.balance
     rescue RestClient::RequestTimeout => e
+      puts e.message
+      sleep sleep_time
+      retry
+    rescue Errno::ECONNREFUSED => e
       puts e.message
       sleep sleep_time
       retry
