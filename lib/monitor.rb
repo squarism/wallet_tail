@@ -36,6 +36,7 @@ class Monitor
       # puts "BALANCE: #{newest_balance}"
 
       if newest_balance != @last_balance
+        puts "--- WALLET CHANGE --- Notifying Growl of new balance: #{newest_balance} ..."
         notifier.annoy "New Balance: #{newest_balance}"
       end
 
