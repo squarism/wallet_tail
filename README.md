@@ -18,15 +18,15 @@ Wouldn't it be nice if tail would tell you when you mined up a bitcoin?
 You'll need Ruby installed (rvm etc).  On Windows, use railsinstaller.
 
 Install the dependencies.
+
     $ bundle
 
 Start the monitor.
+
     $ rake monitor foocoin
 
 
-You'll need to open up the acl on rpcallowip if you're not monitoring localhost.
-
-Change env.example to .env, fill in your details like wallet url, passwords etc.
+On your client, you'll need to open up the acl on rpcallowip if you're not monitoring localhost.  In other words, if you are monitoring from one computer to the wallet on another computer.
 
 Next, sign up for prowlapp, install growl on your Mac (or Windows?) and you can get push notifications to your phone "fo free". It's pretty goddamn nice bros and it will keep you from checking your mining rig all the time.
 
