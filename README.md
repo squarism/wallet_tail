@@ -1,8 +1,12 @@
 ## Wallet Tail ##
 ![image](https://raw.github.com/squarism/wallet_tail/master/img/overview.png)
 
-Wouldn't it be nice if tail would tell you when you mined up a bitcoin?
+Wouldn't it be nice if `tail` would tell you when you mined up a bitcoin?
 
+    $ tail -f wallet.dat
+    ( aún un hechicero malvado no puede esto ... )
+
+Yeah, well ... unfortunately that won't work.  But that's where Wallet Tail comes in.
 
 ## Wire Up Your Wallets ##
 
