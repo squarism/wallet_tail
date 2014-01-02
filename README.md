@@ -1,9 +1,8 @@
-## Wallet Diff ##
+## Wallet Tail ##
 ![image](https://raw.github.com/squarism/wallet_tail/master/img/overview.png)
 
-This is an app that watches your cryptocurrency wallet for changes.  It's safe.  You'll see that it doesn't call walletpassphrase at any point and even if I did, I don't know your wallet passphrase (right!?).
+Wouldn't it be nice if tail would tell you when you mined up a bitcoin?
 
-So what?  Sign up for prowlapp, install growl on your Mac (or Windows?) and you can get push notifications to your phone "fo free".  It's pretty goddamn nice bros.
 
 ## Wire Up Your Wallets ##
 1. Edit conf/foocoin.conf.example as described within the file
@@ -14,17 +13,25 @@ So what?  Sign up for prowlapp, install growl on your Mac (or Windows?) and you 
          litecoin.conf --> your litecoin wallet that's solo mining
          namecoin.conf --> your namecoin wallet that's solo mining
 
-4. Then run `$ rake monitor foocoin`
-
 
 ## Run it ##
-(install Ruby ... omg, I wish I knew Golang for you guys to make running this easier)
+You'll need Ruby installed (rvm etc).  On Windows, use railsinstaller.
 
+Install the dependencies.
     $ bundle
-    $ rake monitor feathercoin
+
+Start the monitor.
+    $ rake monitor foocoin
+
 
 You'll need to open up the acl on rpcallowip if you're not monitoring localhost.
 
+Change env.example to .env, fill in your details like wallet url, passwords etc.
+
+Next, sign up for prowlapp, install growl on your Mac (or Windows?) and you can get push notifications to your phone "fo free". It's pretty goddamn nice bros and it will keep you from checking your mining rig all the time.
+
+
+## Tips ##
 
 If you have just one wallet to watch then you can just run `rake monitor` (after creating the conf/whatever.conf profile for the single wallet you want to watch).
 
