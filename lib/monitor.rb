@@ -33,7 +33,6 @@ class Monitor
 
     while @running do
       newest_balance = wallet_balance
-      # puts "BALANCE: #{newest_balance}"
 
       if newest_balance != @last_balance
         puts "--- WALLET CHANGE --- Notifying Growl of new balance: #{newest_balance} ..."
@@ -61,20 +60,3 @@ class Monitor
 end
 
 
-if $0 == __FILE__
-  monitor = Monitor.new
-
-  begin
-    monitor.start
-  rescue SystemExit, Interrupt
-    puts "Imma stoppin."
-    monitor.stop
-  end
-
-  trap "TERM" do
-    monitor.stop
-  end
-
-end
-
-puts "Done."

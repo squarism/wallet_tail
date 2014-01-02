@@ -2,8 +2,8 @@ source "https://rubygems.org"
 
 gem "growl"
 gem "bitcoin-client"
-gem "foreman"
 gem "dotenv"
+gem "rake"
 
 group :development do
   gem "pry"

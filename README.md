@@ -7,7 +7,7 @@ So what?  Sign up for prowlapp, install growl on your Mac (or Windows?) and you 
 (install Ruby ... omg, I wish I knew Golang for you guys to make running this easier)
 
 $ bundle
-$ foreman start
+$ rake monitor
 
 You'll need to open up the acl on rpcallowip if you're not monitoring localhost.
 
