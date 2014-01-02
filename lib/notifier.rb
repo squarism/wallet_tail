@@ -7,7 +7,7 @@ class Notifier
   end
 
   def annoy message
-    Growl.notify message, title: 'Wallet Diff At Your Service', priority: priority
+    Growl.notify message, title: 'Wallet Tail Event', priority: priority
   end
 
 end

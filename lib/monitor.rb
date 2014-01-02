@@ -57,6 +57,21 @@ class Monitor
     @running = false
   end
 
+  def load_profile(name)
+    if name
+      begin
+        Dotenv.load!(File.expand_path("../../conf/#{name}.conf", __FILE__))
+      rescue Errno::ENOENT
+        puts "No configuration in conf/ named #{name}!"
+        puts "Please follow the README.\n\n"
+        raise ArgumentError
+      end
+    else
+      # if they didn't say what profile to watch then just grab the first one
+      # maybe they just have one wallet?
+      first_file = Dir.glob("conf/*.conf").first
+      Dotenv.load first_file
+    end
+  end
+
 end
-
-
