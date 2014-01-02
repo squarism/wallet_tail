@@ -16,7 +16,7 @@ Install the dependencies
 
 Start the monitor
 
-      $ foreman start
+      $ rake monitor
 
 You'll need to open up the acl on rpcallowip if you're not monitoring localhost.
 
@@ -33,4 +33,3 @@ This just requires your rpc_username.  This doesn't require your wallet password
 ## TODO ##
 
 I need to polish the crap out of this app and add integration tests.
-
