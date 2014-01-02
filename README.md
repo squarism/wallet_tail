@@ -27,9 +27,9 @@ Install the dependencies.
 
     $ bundle
 
-Start the monitor.
+Start Wallet Tail.
 
-    $ rake monitor foocoin
+    $ rake tail foocoin
 
 
 On your client, you'll need to open up the acl on rpcallowip if you're not monitoring localhost.  In other words, if you are monitoring from one computer to the wallet on another computer.
@@ -39,7 +39,7 @@ Next, sign up for prowlapp, install growl on your Mac (or Windows?) and you can 
 
 ## Tips ##
 
-If you have just one wallet to watch then you can just run `rake monitor` (after creating the conf/whatever.conf profile for the single wallet you want to watch).
+If you have just one wallet to watch then you can just run `rake tail` (after creating the conf/whatever.conf profile for the single wallet you want to watch).
 
 
 ### TODO ###

@@ -26,7 +26,7 @@ class Monitor
   end
 
   def start
-    puts "Starting mining monitor.  I'll tell you when your balance changes."
+    puts "Starting Wallet Tail.  I'll tell you when your balance changes."
     @running = true
     @last_balance = wallet_balance
     sleep 5
