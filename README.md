@@ -5,13 +5,15 @@ Wouldn't it be nice if tail would tell you when you mined up a bitcoin?
 
 
 ## Wire Up Your Wallets ##
-1. Edit conf/foocoin.conf.example as described within the file
-2. Save it as a new file called foocoin.conf if you wanted to watch your foocoin wallet
-3. You would create one file under conf for each wallet you want to watch.  If you only have one wallet, then just create one file.
 
-       For example:
-         litecoin.conf --> your litecoin wallet that's solo mining
-         namecoin.conf --> your namecoin wallet that's solo mining
+1. Edit conf/foocoin.conf.example as described within the file
+1. Save it as a new file called foocoin.conf if you wanted to watch your foocoin wallet
+1. You would create one file under conf for each wallet you want to watch.  If you only have one wallet, then just create one file.
+
+For example:
+
+    conf/litecoin.conf --> your litecoin wallet details
+    conf/namecoin.conf --> your namecoin wallet details
 
 
 ## Run it ##
