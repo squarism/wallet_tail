@@ -1,13 +1,25 @@
-# CHANGE THIS FILE TO .env
+# 1. Edit this file as described below
+# 2. Rename it to foocoin.conf if you wanted to watch your foocoin wallet
+#    For example:
+#      litecoin.conf --> your litecoin wallet that's solo mining
+#      namecoin.conf --> your namecoin wallet that's solo mining
+#      etc.
+
+# 3. Then run `rake monitor foocoin`
+
+
 
 # you're going to want to change this to the URL for the bitcoin wallet
 # for example: http://localhost:8332
 # or http://machine:8332  <-- be sure to set your ACLs on the wallet client to allow
 # a remote network connection, by default it only allows localhost.
-
 wallet_url: http://localhost:8332
 
 # this will not and should not be your wallet password
 # in other words, this should be very safe
 rpc_username: username_change_me
 rpc_password: password_change_me
+
+
+# enter a fiendly name for this currency, ie: like the coin symbol.
+# currency: FOO

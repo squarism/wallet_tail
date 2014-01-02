@@ -1,18 +1,28 @@
 require 'bitcoin'
 require 'uri'
 
-require 'dotenv'
-Dotenv.load
-
 class Wallet
 
   def wallet_url
     ENV['wallet_url']
   end
 
+  def rpc_username
+    ENV['rpc_username']
+  end
+
+  def rpc_password
+    ENV['rpc_password']
+  end
+
   def wallet
-    uri = URI.parse(ENV['wallet_url'])
-    @wallet ||= Bitcoin::Client.new(ENV['rpc_username'], ENV['rpc_password'], host: uri.host, port: uri.port)
+    uri = URI.parse(wallet_url)
+    @wallet ||= Bitcoin::Client.new(
+        rpc_username,
+        rpc_password,
+        host: uri.host,
+        port: uri.port
+      )
   end
 
   def balance
