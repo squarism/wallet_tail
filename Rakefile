@@ -2,13 +2,13 @@ require 'dotenv'
 require 'dotenv/tasks'
 require './lib/monitor'
 
-
+desc "Watch a wallet for changes: `rake tail kittehcoin`"
 task :tail => :dotenv do
   # black magic for making rake do sane command line options
   # http://itshouldbeuseful.wordpress.com/2011/11/07/passing-parameters-to-a-rake-task/
   config = ARGV.last
   task config.to_sym do ; end
-  if config == "monitor"
+  if config == "tail"
     config = nil
   end
 
