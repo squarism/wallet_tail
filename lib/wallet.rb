@@ -33,4 +33,8 @@ class Wallet
     wallet.transactions("").select {|t| t["category"] == "generate" }.last
   end
 
+  def difficulty
+    wallet.getdifficulty
+  end
+
 end

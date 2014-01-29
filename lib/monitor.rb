@@ -29,8 +29,14 @@ class Monitor
     wallet.last_transaction
   end
 
+  def wallet_difficulty
+    wallet.difficulty
+  end
+
+  # TODO: we might not need this again for the notification message
+  #       it takes up too much room on the iOS notification screen
   def time_format(time)
-    time.strftime('%Y-%m-%d') + " " + time.zone
+    time.strftime('%F %r') + " " + time.zone
   end
 
   def start
@@ -48,7 +54,11 @@ class Monitor
       if wallet_changed?(@last_transaction, wallet_last_transaction)
         time = Time.at(wallet_last_transaction['time'])
         puts "[WALLET CHANGE] A block has been found! +#{wallet_last_transaction['amount']}"
-        notifier.notify "[#{time_format(time)}] +#{wallet_last_transaction['amount']} - [total: #{wallet_balance}]"
+
+        notifier.notify(
+          "+#{wallet_last_transaction['amount']}\n" +
+          "[ total: #{wallet_balance.to_i} ][ difficulty: #{wallet_difficulty.to_i} ]"
+        )
       end
       sleep sleep_time
     end
