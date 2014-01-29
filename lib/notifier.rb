@@ -6,7 +6,7 @@ class Notifier
     "Emergency"
   end
 
-  def annoy message
+  def notify message
     Growl.notify message, title: 'Wallet Tail Event', priority: priority
   end
 

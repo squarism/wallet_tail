@@ -25,23 +25,44 @@ class Monitor
     balance
   end
 
+  def wallet_last_transaction
+    wallet.last_transaction
+  end
+
+  def time_format(time)
+    time.strftime('%Y-%m-%d') + " " + time.zone
+  end
+
   def start
-    puts "Starting Wallet Tail.  I'll tell you when your balance changes."
+    puts "\"I'll tell you when you find blocks.\""
+    puts "   -- Wallet Tail"
+
+    # initial states
     @running = true
     @last_balance = wallet_balance
-    sleep 5
+    @last_transaction = wallet_last_transaction
+
+    sleep 5  # initial boot sleep time
 
     while @running do
-      newest_balance = wallet_balance
-
-      if newest_balance != @last_balance
-        puts "--- WALLET CHANGE --- Notifying Growl of new balance: #{newest_balance} ..."
-        notifier.annoy "New Balance: #{newest_balance}"
+      if wallet_changed?(@last_transaction, wallet_last_transaction)
+        time = Time.at(wallet_last_transaction['time'])
+        puts "[WALLET CHANGE] A block has been found! +#{wallet_last_transaction['amount']}"
+        notifier.notify "[#{time_format(time)}] +#{wallet_last_transaction['amount']} - [total: #{wallet_balance}]"
       end
-
-      @last_balance = newest_balance
       sleep sleep_time
     end
+  end
+
+  def wallet_changed?(old_wallet_state, new_wallet_state)
+    change_flag = false
+
+    if old_wallet_state["time"] != new_wallet_state["time"]
+      change_flag = true
+    end
+
+    @last_transaction = new_wallet_state
+    change_flag
   end
 
   def wallet

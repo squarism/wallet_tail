@@ -6,7 +6,7 @@ describe Notifier do
 
   it "can annoy you" do
     subject.stub(:priority) { "Normal" }
-    subject.annoy
+    subject.notify
   end
 
 end

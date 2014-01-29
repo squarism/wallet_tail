@@ -29,4 +29,8 @@ class Wallet
     wallet.balance
   end
 
+  def last_transaction
+    wallet.transactions("").select {|t| t["category"] == "generate" }.last
+  end
+
 end
