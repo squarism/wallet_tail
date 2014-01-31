@@ -66,6 +66,7 @@ class Monitor
 
   def wallet_changed?(old_wallet_state, new_wallet_state)
     change_flag = false
+    return false if old_wallet_state == nil  # a wallet with no transactions will be nil
 
     if old_wallet_state["time"] != new_wallet_state["time"]
       change_flag = true

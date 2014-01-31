@@ -7,4 +7,9 @@ describe Wallet do
     wallet.balance.should >= 0
   end
 
+  it "can get transactions" do
+    wallet = Wallet.new
+    wallet.last_transaction
+  end
+
 end
