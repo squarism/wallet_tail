@@ -30,7 +30,7 @@ class Wallet
   end
 
   def last_transaction
-    wallet.transactions("").select {|t| t["category"] == "generate" }.last
+    wallet.transactions("").select {|t| t["category"] == "generate" || t["category"] == "receive" }.last
   end
 
   def difficulty

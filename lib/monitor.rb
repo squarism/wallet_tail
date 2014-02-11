@@ -40,7 +40,7 @@ class Monitor
   end
 
   def start
-    puts "\"I'll tell you when you find blocks.\""
+    puts "\"I'll tell you when receive coins.\""
     puts "   -- Wallet Tail"
 
     # initial states
@@ -53,7 +53,8 @@ class Monitor
     while @running do
       if wallet_changed?(@last_transaction, wallet_last_transaction)
         time = Time.at(wallet_last_transaction['time'])
-        puts "[WALLET CHANGE] A block has been found! +#{wallet_last_transaction['amount']}"
+
+        puts "Wallet Change!  +#{wallet_last_transaction['amount']}"
 
         notifier.notify(
           "+#{wallet_last_transaction['amount']}\n" +
@@ -66,13 +67,13 @@ class Monitor
 
   def wallet_changed?(old_wallet_state, new_wallet_state)
     change_flag = false
-    return false if old_wallet_state == nil  # a wallet with no transactions will be nil
+    return change_flag if old_wallet_state == nil  # a wallet with no transactions will be nil
 
     if old_wallet_state["time"] != new_wallet_state["time"]
       change_flag = true
+      @last_transaction = new_wallet_state
     end
 
-    @last_transaction = new_wallet_state
     change_flag
   end
 
